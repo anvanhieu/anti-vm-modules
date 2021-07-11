@@ -44,7 +44,7 @@ int main()
 	if(is_suspicios_resolution(horizontal, vertical))
 		cout << "Could be sandbox" << endl;
 	else
-		cout << "OK" << endl;
+		cout << "Not be common sandbox resolution" << endl;
 	
    return 0;
 }

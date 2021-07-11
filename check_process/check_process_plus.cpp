@@ -1,5 +1,6 @@
 // Ref: https://docs.microsoft.com/en-us/windows/win32/psapi/enumerating-all-processes
-// g++ check_process.cpp -o check_process -lpsapi
+// adding some process 
+// g++ <> -lpsapi
 
 #include <Windows.h>
 #include <stdio.h>
@@ -9,7 +10,7 @@
 #include <string>
 
 
-std::string VM_PROCESS_STRING[] = {"vmtoolsd.exe", "vm3dservice.exe"};
+std::string VM_PROCESS_STRING[] = {"vmtoolsd.exe", "vm3dservice.exe", "vmwaretray.exe", "vmwaretray.exe", "VGAuthService.exe", "vmacthlp.exe"};
 
 
 bool isVMwareProcess( DWORD processID )

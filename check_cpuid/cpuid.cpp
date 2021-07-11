@@ -8,6 +8,7 @@ string VMware = "VMware";
 
 int main()
 {
+	int CPUInfo[4] = { -1 };
 	__cpuid(CPUInfo, 0x40000000);
 	for(auto & info : CPUInfo){
 		string s = (char*)&info;

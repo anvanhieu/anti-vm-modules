@@ -8,17 +8,17 @@
 
 using namespace std;
 
-BYTE COMMON_MAC_VMWARE[4][3] = { {0x00, 0x05, 0x69 }, {0x00, 0x0C, 0x29}, {0x00, 0x1C, 0x14}, {0x00, 0x50, 0x56} };
+BYTE COMMON_MAC_VMWARE_HEAD[4][3] = { {0x00, 0x05, 0x69 }, {0x00, 0x0C, 0x29}, {0x00, 0x1C, 0x14}, {0x00, 0x50, 0x56} };
 
 
 int check_mac_vmware(BYTE* mac_addr, bool needLoop)
 {
-	int len = sizeof(COMMON_MAC_VMWARE) / sizeof(COMMON_MAC_VMWARE[0]);
+	int len = sizeof(COMMON_MAC_VMWARE_HEAD) / sizeof(COMMON_MAC_VMWARE_HEAD[0]);
 				for (int i = 0; i < len; i++)
 				{
 					bool isMAC = true;
 					for (int j = 0; j < 3; j++)
-						if (mac_addr[j] != COMMON_MAC_VMWARE[i][j])
+						if (mac_addr[j] != COMMON_MAC_VMWARE_HEAD[i][j])
 						{
 							isMAC = false;
 							break;
@@ -26,7 +26,7 @@ int check_mac_vmware(BYTE* mac_addr, bool needLoop)
 					if (isMAC) 
 					{
 						needLoop = false;
-						return i;  // index in COMMON_MAC_VMWARE
+						return i;  // index in COMMON_MAC_VMWARE_HEAD
 					}
 				}
 	return -1;

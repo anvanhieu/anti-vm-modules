@@ -1,4 +1,7 @@
+// Ref: https://www.cyberbit.com/blog/endpoint-security/anti-vm-and-anti-sandbox-explained/ 
+// finding more in system32/ directory
 // al-khaser
+// g++ -fPIC -static -static-libgcc -static-libstdc++ check_file_dll.cpp -o check_file_dll -lshlwapi 
 
 #include <windows.h>
 #include <stdio.h>
@@ -20,19 +23,26 @@ int main(){
 	bool isVMwareDetected = false;
 	
 	const TCHAR* szPaths[] = {
-			_T("System32\\drivers\\vmnet.sys"),
-			_T("System32\\drivers\\vmmouse.sys"),
-			_T("System32\\drivers\\vmusb.sys"),
-			_T("System32\\drivers\\vm3dmp.sys"),
-			_T("System32\\drivers\\vmci.sys"),
-			_T("System32\\drivers\\vmhgfs.sys"),
-			_T("System32\\drivers\\vmmemctl.sys"),
-			_T("System32\\drivers\\vmx86.sys"),
-			_T("System32\\drivers\\vmrawdsk.sys"),
-			_T("System32\\drivers\\vmusbmouse.sys"),
-			_T("System32\\drivers\\vmkdb.sys"),
-			_T("System32\\drivers\\vmnetuserif.sys"),
-			_T("System32\\drivers\\vmnetadapter.sys"),
+			_T("System32\\vm3dgl.dll"),
+			_T("System32\\vm3dgl.dll"),
+			_T("System32\\vmdum.dll"),
+			_T("System32\\vm3dver.dll"),
+			_T("System32\\vmtray.dll"),
+			_T("System32\\VMToolsHook.dll"),
+			_T("System32\\vmmousever.dll"),
+			_T("System32\\vmhgfs.dll"),
+			_T("System32\\vmGuestLib.dll"),
+			_T("System32\\VmGuestLibJava.dll"),
+			_T("System32\\vmhgfs.dll"),
+			_T("System32\\vm3dco.dll"),		 // adding from here	
+			_T("System32\\vmhgfs_x86.dll"),
+			_T("System32\\VMWSU.dll"),
+			_T("System32\\vmbusCoinstaller.dll"),
+			_T("System32\\vmbuspipe.dll"),
+			_T("System32\\VMBUSVideoD.dll"),
+			_T("System32\\VmdCoinstall.dll"),
+			_T("System32\\vmicres.dll"),
+			_T("System32\\vmstorfltres.dll"),
 		};
 
 		/* Getting Windows Directory */
@@ -54,7 +64,7 @@ int main(){
 				isVMwareDetected = true;
 			}
 			else
-				cout << "Nothing\n";
+				cout << "No\n";
 		}
 
 	if(isVMwareDetected)
