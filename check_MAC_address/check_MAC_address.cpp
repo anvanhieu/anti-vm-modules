@@ -68,7 +68,7 @@ int main()
 		bool needLoop = true;
 		while (pAdapterInfoPtr && needLoop)
 		{
-			if (pAdapterInfoPtr->AddressLength == 6 && check_mac_vmware(pAdapterInfoPtr->Address, &needLoop))
+			if (pAdapterInfoPtr->AddressLength == 6 && check_mac_vmware(pAdapterInfoPtr->Address, &needLoop) != -1)
 			{
 				cout << "VMware detected" << endl;
 			}

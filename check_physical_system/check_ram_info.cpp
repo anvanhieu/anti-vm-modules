@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-	cout << "[+] Check RAM Size less than 4GB => ";
+	cout << "[+] Check RAM Size less than 2GB => ";
 
 	MEMORYSTATUSEX statex;
 	statex.dwLength = sizeof (statex);
@@ -19,9 +19,10 @@ int main()
 	int RAM_size = round((float)statex.ullTotalPhys/(1024*1024*1024));
 	cout << RAM_size << endl;
 
-	if (RAM_size < 4)
+	if (RAM_size < 2)
 		cout << "Could be VM" << endl;
 	else
 		cout << "OK" << endl;
-	return EXIT_SUCCESS;
+	
+	return 0;
 }

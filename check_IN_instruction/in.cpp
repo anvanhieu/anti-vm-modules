@@ -12,6 +12,8 @@
                         "2"(VMWARE_HYPERVISOR_PORT), "3"(UINT_MAX) :    \
                         "memory");
 
+
+
 using namespace std;
 						
 int hypervisor_port_check(void)
@@ -27,8 +29,11 @@ int hypervisor_port_check(void)
 int main()
 {
 	cout << "[IN instruction detect] ";
-	if(hypervisor_port_check())
-		cout << "VMWare detected!!" << endl;
-	else
-		cout << "Nothing" << endl;
+	
+		if(hypervisor_port_check())
+			cout << "VMWare detected!!" << endl;
+		else
+			cout  << "Nothing here" << endl;
+		
+	return 0;
 }
